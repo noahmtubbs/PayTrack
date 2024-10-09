@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PayTrack - Comprehensive Payroll Management System">
+    <title>PayTrack - Payroll Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>PayTrack: Comprehensive Payroll Management System</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#concept">Concept</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#structure">Database Structure</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Homepage Section -->
+    <section id="home">
+        <h2>Welcome to PayTrack</h2>
+        <p>Streamline your payroll management with PayTrack. Our comprehensive solution automates key payroll tasks, ensuring accuracy, compliance, and efficiency.</p>
+    </section>
+
+    <!-- Concept Section -->
+    <section id="concept">
+        <h2>Concept</h2>
+        <p>PayTrack aims to address common issues associated with manual payroll management, including inaccuracies, time delays, compliance issues, and more.</p>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+        <h2>Features</h2>
+        <p>PayTrack offers a comprehensive set of features designed to simplify payroll management:</p>
+        <ul>
+            <li><strong>Employee Management:</strong> Add, edit, and manage employee profiles with salary information, department, and contact details.</li>
+            <li><strong>Payroll Calculation:</strong> Automate salary calculations, including overtime, bonuses, and deductions.</li>
+            <li><strong>Leave & Attendance Tracking:</strong> Manage and track employee leave requests and attendance records.</li>
+            <li><strong>Tax & Benefits Management:</strong> Configure and automate tax deductions and benefit contributions.</li>
+            <li><strong>Audit & Compliance:</strong> Maintain detailed audit trails to ensure compliance with financial regulations.</li>
+            <li><strong>Reports & Analytics:</strong> Generate reports to provide insights into payroll data.</li>
+            <li><strong>User Portals:</strong> Different user portals for administrators, employees, and auditors.</li>
+                <ul>
+                    <li><strong>Admin Portal:</strong> Manage payroll calculations, report generation, employee management, and audits.</li>
+                    <li><strong>Employee Portal:</strong> Access payslips, view leave and benefits information.</li>
+                    <li><strong>Audit Portal:</strong> View audit logs and generate reports.</li>
+                </ul>
+        </ul>
+        <img src="images/overview.png" alt="Payroll Concept" style="max-width: 100%; height: auto;">
+    </section>
+
+    <!-- Database Structure Section -->
+    <section id="structure">
+        <h2>Database Structure</h2>
+        <p>The database structure for PayTrack includes the following SQL schema and corresponding table images for better visualization:</p>
+        
+        <h3>Employee Table</h3>
+        <pre>
+        <code>
+        -- Create Database
+        CREATE DATABASE PayTrack;
+        USE PayTrack;
+
+        -- Employee Table
+        CREATE TABLE Employee (
+            EmployeeID INT PRIMARY KEY AUTO_INCREMENT,
+            FirstName VARCHAR(50),
+            LastName VARCHAR(50),
+            EmployeeType VARCHAR(10),  
+            Department VARCHAR(50),
+            Position VARCHAR(50),
+            HireDate DATE,
+            Salary DECIMAL(10, 2),     
+            HourlyRate DECIMAL(10, 2), 
+            TaxRate DECIMAL(5, 2)      
+        );
+        </code>
+        </pre>
+        <img src="images/employee_table.png" alt="Employee Table Example" style="max-width: 100%; height: auto;">
+    
+
+        <h3>Attendance Table</h3>
+        <pre>
+        <code>
+        -- Attendance Table
+        CREATE TABLE Attendance (
+            AttendanceID INT PRIMARY KEY AUTO_INCREMENT,
+            EmployeeID INT,
+            Date DATE,
+            HoursWorked DECIMAL(5, 2),
+            FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
+        );
+        </code>
+        </pre>
+        <img src="images/attendance_table.png" alt="Attendance Table Example" style="max-width: 100%; height: auto;">
+       
+
+        <h3>Employee Leave Table</h3>
+        <pre>
+        <code>
+        -- Leave Table
+        CREATE TABLE EmployeeLeave (
+            LeaveID INT PRIMARY KEY AUTO_INCREMENT,
+            EmployeeID INT,
+            LeaveDate DATE,
+            LeaveType VARCHAR(50),     
+            Duration DECIMAL(5, 2),   
+            FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
+        );
+        </code>
+        </pre>
+        <img src="images/employee_leave_table.png" alt="Employee Leave Table Example" style="max-width: 100%; height: auto;">
+       
+
+        <h3>Payroll Table</h3>
+        <pre>
+        <code>
+        -- Payroll Table
+        CREATE TABLE Payroll (
+            PayrollID INT PRIMARY KEY AUTO_INCREMENT,
+            EmployeeID INT,
+            PayPeriodStart DATE,
+            PayPeriodEnd DATE,
+            BaseSalary DECIMAL(10, 2), 
+            HoursWorked DECIMAL(5, 2), 
+            OvertimePay DECIMAL(10, 2),
+            Bonus DECIMAL(10, 2),
+            Deductions DECIMAL(10, 2),
+            TaxRate DECIMAL(5, 2),    
+            PensionContribution DECIMAL(10, 2),
+            BenefitsContribution DECIMAL(10, 2),
+            NetPay DECIMAL(10, 2),     
+            FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
+        );
+        </code>
+        </pre>
+        <img src="images/payroll_table.png" alt="Payroll Table Example" style="max-width: 100%; height: auto;">
+       
+
+        <h3>Payroll Audit Table</h3>
+        <pre>
+        <code>
+        -- Payroll Audit Table
+        CREATE TABLE PayrollAudit (
+            AuditID INT PRIMARY KEY AUTO_INCREMENT,
+            PayrollID INT,
+            ActionTaken VARCHAR(50),   -- 'Created', 'Updated', 'Deleted'
+            ActionDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (PayrollID) REFERENCES Payroll(PayrollID)
+        );
+        </code>
+        </pre>
+        <img src="images/audit_table.png" alt="Payroll Audit Table Example" style="max-width: 100%; height: auto;">
+     
+    </section>
+
+
+    <!-- FAQs Section -->
+    <section id="faqs">
+        <h2>Frequently Asked Questions</h2>
+        <h3>What features does PayTrack offer?</h3>
+        <p>PayTrack offers Employee Management, Payroll Calculation, Leave & Attendance Tracking, Tax & Benefits Management, Audit & Compliance, Reports & Analytics, and User Portals for Admin, Employee, and Audit.</p>
+    </section>
+
+<!-- Demo Section -->
+<section id="demo">
+    <h2>Demo</h2>
+    <p>Experience the features of PayTrack firsthand!. Here are some examples after executing SQL code.</p>
+    <img src="images/exployeeex.png" alt="Detailed Employee Table Example" style="max-width: 100%; height: auto;">
+    <img src="images/attendancex.png" alt="Detailed Attendance Table Example" style="max-width: 100%; height: auto;">
+    <img src="images/employeeleaveex.png" alt="Detailed Employee Leave Table Example" style="max-width: 100%; height: auto;">
+    <img src="images/payrollex.png" alt="Detailed Payroll Table Example" style="max-width: 100%; height: auto;">
+    <img src="images/auditex.png" alt="Payroll Audit Table Example" style="max-width: 100%; height: auto;">
+</section>
+
+
+    
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>For more information or to request a demo, please contact us at:</p>
+        <p>Noah, Austin & Matthew</p>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 PayTrack. All rights reserved
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 PayTrack. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,151 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Light background */
+}
+
+header {
+    background-color: #1e90ff; /* Dodger blue header */
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Navigation Styles */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px; /* Increased spacing for better visibility */
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s; /* Smooth color transition on hover */
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+    color: #ffeb3b; /* Change color on hover for better visibility */
+}
+
+/* Section Styles */
+section {
+    padding: 40px;
+    margin: 20px auto;
+    max-width: 1200px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for images */
+img {
+    display: block;
+    margin: 20px auto; /* Centers the images */
+    max-width: 90%; /* Ensure images do not exceed 90% of the container width */
+    height: auto; /* Maintain aspect ratio */
+    border: 1px solid #ddd; /* Adds a light border around images */
+    border-radius: 5px; /* Optional: Rounds the corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}
+
+/* Style for section headers */
+h2 {
+    text-align: center;
+    color: #1e90ff; /* Dodger blue color */
+}
+
+h3 {
+    color: #1e90ff; /* Dodger blue color */
+    margin-top: 30px; /* Adds space before section headers */
+}
+
+/* Footer styles */
+footer {
+    background-color: #1e90ff;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Centered paragraph style */
+p {
+    text-align: center; /* Center the text */
+}
+
+/* Italic text style */
+p {
+    font-style: italic; /* Italic text style */
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column; /* Stack form elements vertically */
+    align-items: center; /* Center form elements */
+}
+
+form label {
+    margin-bottom: 5px; /* Space between label and input */
+    font-weight: bold; /* Make label text bold */
+}
+
+form input, form textarea {
+    width: 80%; /* Set input fields to 80% width */
+    padding: 10px;
+    margin-bottom: 15px; /* Space between inputs */
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Rounded corners */
+    transition: border 0.3s; /* Smooth border transition */
+}
+
+form input:focus, form textarea:focus {
+    border-color: #1e90ff; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Button Style */
+form button {
+    padding: 10px 20px;
+    background-color: #1e90ff; /* Match button color with header */
+    color: white;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background transition */
+}
+
+form button:hover {
+    background-color: #0e76e3; /* Darker shade on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block; /* Stack navigation items on small screens */
+        margin: 10px 0; /* Space between stacked items */
+    }
+
+    section {
+        padding: 20px; /* Reduce padding on smaller screens */
+    }
+
+    form input, form textarea {
+        width: 90%; /* Increase input width on smaller screens */
+    }
+}
