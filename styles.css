@@ -1,0 +1,252 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8; /* Light gray-blue */
+    color: #333; /* Dark gray text */
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Header Styles */
+header {
+    background-color: #001F54; /* Deeper navy blue for better contrast */
+    color: #FFFFFF; /* White */
+    padding: 1.5rem 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly deeper shadow for better depth */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover or scroll effects */
+}
+
+header:hover {
+    background-color: #003C8F; /* Slightly lighter navy blue on hover for interactivity */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem; /* Slightly smaller for better readability on smaller screens */
+    letter-spacing: 1.2px; /* Slightly increased spacing for a polished look */
+    font-weight: 700;
+    text-transform: uppercase; /* Makes the header text more impactful */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Adds depth to the text */
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem; /* Responsive size for smaller screens */
+    }
+}
+
+/* Navigation Bar */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: #004494; /* Darker navy blue */
+    padding: 0.5rem 0;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: #FFFFFF; /* White */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.8rem 1.2rem;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    background-color: #8B0000; /* Dark red */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Main Container Styles */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #FFFFFF; /* White */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.container section {
+    margin-bottom: 2rem;
+    border-left: 5px solid #000080; /* Navy blue */
+    padding-left: 1.5rem;
+}
+
+/* Section Headers */
+h2 {
+    border-bottom: 2px solid #8B0000; /* Dark red */
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    color: #000080; /* Navy blue */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Lists */
+ul {
+    padding-left: 1.5rem;
+}
+
+ul li {
+    margin-bottom: 0.8rem;
+    color: #333333; /* Dark gray */
+    font-size: 1rem;
+}
+
+
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    color: #FFFFFF; /* White */
+    background-color: #8B0000; /* Dark red */
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    background-color: #000080; /* Navy blue */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Feature Cards */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.feature-card {
+    background: #FFFFFF;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card h3 {
+    color: #000080; /* Navy blue */
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.feature-card p {
+    color: #555555; /* Medium gray */
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+form label {
+    font-weight: bold;
+    color: #333;
+    font-size: 1rem;
+}
+
+form input[type="text"],
+form input[type="password"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form input[type="submit"] {
+    background-color: #8B0000;
+    color: white;
+    font-size: 1rem;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #000080;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    background-color: #000080; /* Navy blue */
+    color: #FFFFFF; /* White */
+    padding: 1rem 0;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    .container {
+        padding: 1.5rem;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
